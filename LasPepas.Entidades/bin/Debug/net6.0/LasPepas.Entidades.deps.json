@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "LasPepas.Entidades/1.0.0": {
+        "dependencies": {
+          "LasPepas.Abstracciones": "1.0.0"
+        },
+        "runtime": {
+          "LasPepas.Entidades.dll": {}
+        }
+      },
+      "LasPepas.Abstracciones/1.0.0": {
+        "runtime": {
+          "LasPepas.Abstracciones.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LasPepas.Entidades/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LasPepas.Abstracciones/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

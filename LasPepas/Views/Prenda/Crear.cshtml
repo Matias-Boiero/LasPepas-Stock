@@ -1,0 +1,101 @@
+﻿@using LasPepas.Entidades.Enums
+@using LasPepas.Enums
+@model LasPepas.Entidades.Prenda
+
+@{
+    ViewData["Title"] = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Crear</h1>
+
+<h4>Prenda</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Crear">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-2">
+                <input asp-for="Id" placeholder="Código" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <input asp-for="FechaCreacion" placeholder="Fecha de creación" class="form-control" />
+                <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+
+                @Html.DropDownList("Marca", Html.GetEnumSelectList<Marca>(), "--Seleccionar marca--", new { @class = "form-control" })
+                <span asp-validation-for="Marca" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                @Html.DropDownList("TipoPrenda", Html.GetEnumSelectList<TipoPrenda>(), "--Seleccionar Tipo de prenda--", new { @class = "form-control" })
+                <span asp-validation-for="TipoPrenda" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+
+                @Html.DropDownList("Temporada", Html.GetEnumSelectList<Temporada>(), "--Seleccionar temporada-", new { @class = "form-control" })
+                <span asp-validation-for="Temporada" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+
+                <input asp-for="Descripción" placeholder="Descripción del articulo" class="form-control" />
+                <span asp-validation-for="Descripción" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+
+                <input asp-for="Talle" placeholder="Talle" class="form-control" />
+                <span asp-validation-for="Talle" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <input asp-for="Precio" placeholder="Precio" class="form-control" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check mb-2">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Disponible" /> @Html.DisplayNameFor(model => model.Disponible)
+                </label>
+            </div>
+            <div class="form-group mb-2">
+                <input asp-for="VentaContado" placeholder="Pago al contado/débito" class="form-control" />
+                <span asp-validation-for="VentaContado" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+
+                <input asp-for="VentaCtaCorriente" placeholder="Pago en cuenta corriente" class="form-control" />
+                <span asp-validation-for="VentaCtaCorriente" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+
+                <input asp-for="VentaTarjeta" placeholder="Pago con tarjeta de crédito" class="form-control" />
+                <span asp-validation-for="VentaTarjeta" class="text-danger"></span>
+            </div>
+            @*  <div class="form-group">
+                <input asp-for="FechaVenta" class="form-control" />
+                <span asp-validation-for="FechaVenta" class="text-danger"></span>
+                </div>*@
+
+            @*<div class="form-group">
+                @Html.DropDownList("TipoVenta", Html.GetEnumSelectList<TipoVenta>(), "--Seleccionar Tipo de venta--", new { @class = "form-control" })
+                <span asp-validation-for="TipoVenta" class="text-danger"></span>
+                </div>*@
+            <div class="form-group mb-2">
+                <input asp-for="Cliente" placeholder="Nombre del cliente/a" class="form-control" />
+                <span asp-validation-for="Cliente" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+
+                <input asp-for="Observaciones" placeholder="Observaciones" class="form-control" />
+                <span asp-validation-for="Observaciones" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+
