@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "fdTZ/ouvNO5asOL93B7BuRoT8yvb81P51BuBhoLjQw4+qqORtkqMiutG8OXtHCMvqONHMHm7DAROOU9GTY2rHg==",
+  "dgSpecHash": "OyV+DOeD0R/rIvy6Ef52ulFAJpVo+5UiRRAP18poUs9+NINOksMeBAaSoj0yC8Bp8VkNR6ZHL2+6+hh173rUGg==",
   "success": true,
   "projectFilePath": "C:\\Users\\maty_\\source\\repos\\LasPepas\\LasPepas.Servicios\\LasPepas.Servicios.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\maty_\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\maty_\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

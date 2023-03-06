@@ -1,0 +1,90 @@
+﻿@model LasPepas.Entidades.Prenda
+
+@{
+    ViewData["Title"] = "Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-success">Estado del producto</h1>
+
+<div class="row col-md-8">
+    <div class="col-md-4">
+
+        <hr />
+        <dl class="fw-bold">
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.FechaCreacion)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.FechaCreacion)
+            </dd>
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.Marca)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.Marca)
+            </dd>
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.Descripción)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.Descripción)
+            </dd>
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.Talle)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.Talle)
+            </dd>
+
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.Disponible)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.Disponible)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="col-md-4">
+        <dl class="fw-bold">
+            <hr />
+            <dt class="col-12">
+                @Html.DisplayNameFor(model => model.VentaContado)
+            </dt>
+            <dd class="col-12 text-success">
+                @Html.DisplayFor(model => model.VentaContado)
+            </dd>
+            <dt class="col-12">
+                @Html.DisplayNameFor(model => model.VentaCtaCorriente)
+            </dt>
+            <dd class="col-12 text-danger">
+                @Html.DisplayFor(model => model.VentaCtaCorriente)
+            </dd>
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.VentaTarjeta)
+            </dt>
+            <dd class="col-12 text-success">
+                @Html.DisplayFor(model => model.VentaTarjeta)
+            </dd>
+            <dt class="col-12">
+                @Html.DisplayNameFor(model => model.Cliente)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.Cliente)
+            </dd>
+            <dt class="col-12">
+                @Html.DisplayNameFor(model => model.FechaVenta)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.FechaVenta)
+            </dd>
+        </dl>
+    </div>
+
+
+    <div class="btn-group col-6">
+        <a class="text-white fs-6 fw-bolder btn btn-success col-6" asp-action="Index">Regresar</a>
+    </div>
+</div>
+

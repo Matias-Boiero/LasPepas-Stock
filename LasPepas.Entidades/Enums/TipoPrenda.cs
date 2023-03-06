@@ -4,8 +4,6 @@
     {
         Prenda,
         Calzado,
-        Accesorio,
-        Niño,
-        Niña
+        Accesorio
     }
 }

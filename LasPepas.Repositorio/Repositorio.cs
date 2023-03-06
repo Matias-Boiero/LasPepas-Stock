@@ -40,7 +40,7 @@ namespace LasPepas.Repositorio
         }
 
 
-        public async Task<T> GetById(int id)
+        public async Task<T> GetById(string id)
         {
             return await _dbContext.GetById(id);
         }

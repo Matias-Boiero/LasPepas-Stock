@@ -7,9 +7,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Crear</h1>
+<h1 class="text-warning">Crear</h1>
 
-<h4>Prenda</h4>
+<h4 class="text-warning">Prenda</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -93,9 +93,43 @@
             </div>
         </form>
     </div>
+    <div class="col-md-4">
+        <h3 class="text-secondary fw-bold">Por favor escanea el código</h3>
+        <i class="fa-solid fa-qrcode text-danger"></i>
+        <strong class="text-secondary">Código: </strong>
+        <div class="text-primary" id="last-barcode"></div>
+    </div>
 </div>
 
 <div>
     <a asp-action="Index">Regresar</a>
 </div>
 
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    //Codigo para scanear codigos de barra
+    var barcode = '';
+           var interval;
+           document.addEventListener('keydown', function(evt) {
+               if (interval)
+                   clearInterval(interval);
+               if (evt.code == 'Enter') {
+                   if (barcode)
+                       handleBarcode(barcode);
+                   barcode = '';
+                   return;
+               }
+               if (evt.key != 'Shift')
+                   barcode += evt.key;
+               interval = setInterval(() => barcode = '', 20);
+           });
+
+           function handleBarcode(scanned_barcode) {
+               document.querySelector('#last-barcode').innerHTML = scanned_barcode;
+           }
+</script>

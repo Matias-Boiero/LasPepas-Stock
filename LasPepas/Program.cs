@@ -2,6 +2,7 @@ using LasPepas.Abstracciones;
 using LasPepas.AccesoDatos;
 using LasPepas.Aplicacion;
 using LasPepas.Repositorio;
+using LasPepas.Servicios;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,8 @@ op.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), 
 builder.Services.AddScoped(typeof(IAplicacion<>), typeof(Aplicacion<>));
 builder.Services.AddScoped(typeof(IRepositorio<>), typeof(Repositorio<>));
 builder.Services.AddScoped(typeof(IDbContext<>), typeof(DbContext<>));
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

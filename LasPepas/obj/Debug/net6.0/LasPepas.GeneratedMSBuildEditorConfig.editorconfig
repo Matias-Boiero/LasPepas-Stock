@@ -27,6 +27,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlbmRhXENyZWFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/maty_/source/repos/LasPepas/LasPepas/Views/Prenda/Detalle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlbmRhXERldGFsbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maty_/source/repos/LasPepas/LasPepas/Views/Prenda/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlbmRhXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maty_/source/repos/LasPepas/LasPepas/Views/Prenda/Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlbmRhXEVsaW1pbmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/maty_/source/repos/LasPepas/LasPepas/Views/Prenda/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlbmRhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Ciyd8ZGt7odJ5+4xyGrI1XJZcbIkwjoldPFlg8FUWcvU4h3clXDlibl0fmU/+JlcoHX1Ycm2rY+v0yKpdvY/Bw==",
+  "dgSpecHash": "ugEw7uPXpmgLc+jHs7Q2Oyj+0YV0do+YOdcNeCGIStPIPeS1PyjS79xFlNTSAPzipl5q159Ees4zSa24v3Rf8Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\maty_\\source\\repos\\LasPepas\\LasPepas.Aplicacion\\LasPepas.Aplicacion.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\maty_\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\maty_\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\maty_\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.14\\microsoft.entityframeworkcore.6.0.14.nupkg.sha512",
     "C:\\Users\\maty_\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.14\\microsoft.entityframeworkcore.abstractions.6.0.14.nupkg.sha512",
     "C:\\Users\\maty_\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.14\\microsoft.entityframeworkcore.analyzers.6.0.14.nupkg.sha512",

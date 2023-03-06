@@ -7,7 +7,7 @@ namespace LasPepas.Entidades
     public class Prenda
     {
         [Required(ErrorMessage = "El código es requerido")]
-        [MaxLength(10)]
+        [MaxLength(20)]
         public string Id { get; set; }
         [Required(ErrorMessage = "La fecha es requerida")]
         [DataType(DataType.Date)]
@@ -38,11 +38,9 @@ namespace LasPepas.Entidades
         [DisplayFormat(DataFormatString = "{0:yyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? FechaVenta { get; set; }
         public TipoVenta? TipoVenta { get; set; }
-        [Required(ErrorMessage = "En nombre del cliente es requerido")]
         [MaxLength(40)]
-        public string Cliente { get; set; }
+        public string? Cliente { get; set; }
         [MaxLength(50)]
         public string? Observaciones { get; set; }
-
     }
 }

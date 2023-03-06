@@ -39,7 +39,7 @@ namespace LasPepas.AccesoDatos
 
         }
 
-        public async Task<T> GetById(int id)
+        public async Task<T> GetById(string id)
         {
             return await _context.FindAsync(id);
 

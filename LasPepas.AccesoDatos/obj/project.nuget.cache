@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "gtbTbRR4dB6b68bqSRgfHUiOmmfoH0A+9CPiKXBKGqU14zsy02jtQ4hGlBAHq7fI+rqn0vaZSZGxKXdLBFxy3g==",
+  "dgSpecHash": "KvYUkbE8o9B9SEccKx5ZwcVh4kt7gysjhH/MFhE19bNrk+IGMFKZ3ueO0aW4KYNmQ7Z7lgYapt27+gGIAxHR0g==",
   "success": true,
   "projectFilePath": "C:\\Users\\maty_\\source\\repos\\LasPepas\\LasPepas.AccesoDatos\\LasPepas.AccesoDatos.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\maty_\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\maty_\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\maty_\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\maty_\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.14\\microsoft.entityframeworkcore.6.0.14.nupkg.sha512",
     "C:\\Users\\maty_\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.14\\microsoft.entityframeworkcore.abstractions.6.0.14.nupkg.sha512",
     "C:\\Users\\maty_\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.14\\microsoft.entityframeworkcore.analyzers.6.0.14.nupkg.sha512",
