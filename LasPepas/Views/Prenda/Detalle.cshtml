@@ -5,12 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-success">Estado del producto</h1>
 
-<div class="row col-md-8">
-    <div class="col-md-4">
 
-        <hr />
+<div class="row col-md-6 me-2 ms-2">
+    <h1 class="text-secondary">Estado del artículo</h1>
+    <div class="col-md-6">
         <dl class="fw-bold">
             <dt class="col-12 ">
                 @Html.DisplayNameFor(model => model.FechaCreacion)
@@ -46,20 +45,27 @@
         </dl>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
         <dl class="fw-bold">
-            <hr />
+
             <dt class="col-12">
                 @Html.DisplayNameFor(model => model.VentaContado)
             </dt>
             <dd class="col-12 text-success">
                 @Html.DisplayFor(model => model.VentaContado)
             </dd>
+
             <dt class="col-12">
                 @Html.DisplayNameFor(model => model.VentaCtaCorriente)
             </dt>
             <dd class="col-12 text-danger">
                 @Html.DisplayFor(model => model.VentaCtaCorriente)
+            </dd>
+            <dt class="col-12">
+                @Html.DisplayNameFor(model => model.Condicional)
+            </dt>
+            <dd class="col-12 text-danger">
+                @Html.DisplayFor(model => model.Condicional)
             </dd>
             <dt class="col-12 ">
                 @Html.DisplayNameFor(model => model.VentaTarjeta)
@@ -80,11 +86,10 @@
                 @Html.DisplayFor(model => model.FechaVenta)
             </dd>
         </dl>
+
     </div>
-
-
-    <div class="btn-group col-6">
-        <a class="text-white fs-6 fw-bolder btn btn-success col-6" asp-action="Index">Regresar</a>
+    <div class="btn-group col-md-8 d-grid gap-2 mb-3">
+        <a class="text-white fs-6 fw-bolder btn btn-success" asp-action="Index">Regresar</a>
     </div>
 </div>
 

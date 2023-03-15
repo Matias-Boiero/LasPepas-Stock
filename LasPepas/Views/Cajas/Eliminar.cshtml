@@ -1,0 +1,94 @@
+﻿@model LasPepas.Entidades.Caja
+
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row col-md-8 me-3 ms-3">
+    <h3 class="text-danger text-bolder">¿Estás seguro de eliminar esta caja?</h3>
+    <div class="col-md-4">
+
+        <hr />
+        <dl class="fw-bold">
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.FechaCreacion)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.FechaCreacion)
+            </dd>
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.NombreCliente)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.NombreCliente)
+            </dd>
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.FormaPago_1)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.FormaPago_1)
+            </dd>
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.FormaPago_2)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.FormaPago_2)
+            </dd>
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.IngresoEfectivo)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.IngresoEfectivo)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="col-md-4">
+        <dl class="fw-bold">
+            <hr />
+
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.IngresoBancario)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.IngresoBancario)
+            </dd>
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.TipoTarjeta)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.TipoTarjeta)
+            </dd>
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.NroCuotas)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.NroCuotas)
+            </dd>
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.Egreso)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.TipoEgreso)
+            </dd>
+            <dt class="col-12 ">
+                @Html.DisplayNameFor(model => model.Cambio)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.Cambio)
+            </dd>
+        </dl>
+
+    </div>
+    <div class="mb-3 col-md-8">
+        <form asp-action="Eliminar">
+            <div class="col-md-12 btn-group">
+                <button type="submit" class="btn btn-danger fw-bolder  rounded-1"><i class="fa-solid fa-trash"></i>&nbspEliminar</button>
+                <a class="btn btn-secondary text-white fw-bold rounded-1 ms-1" asp-action="Index"><i class="fa-solid fa-hand-point-left"></i>&nbspRegresar</a>
+                <input type="hidden" asp-for="Id" />
+            </div>
+        </form>
+    </div>
+</div>

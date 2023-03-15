@@ -1,0 +1,36 @@
+﻿@using LasPepas.Models.ViewModel
+@model List<ManageUserRolesViewModel>
+@{
+    ViewData["Title"] = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-6">
+    <form method="post">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-secondary">Administrar roles de usuarios</h2>
+                <span class="text-dark">Agregar/Eliminar Roles de Usuarios /@ViewBag.UserName.</span>
+            </div>
+            <div class="card-body">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <div class="form-check m-1 text-dark">
+                        <input type="hidden" asp-for="@Model[i].RoleId" />
+                        <input type="hidden" asp-for="@Model[i].RoleName" />
+                        <input asp-for="@Model[i].Selected" class="form-check-input" />
+                        <label class="form-check-label" asp-for="@Model[i].Selected">
+                            @Model[i].RoleName
+                        </label>
+                    </div>
+                }
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </div>
+            <div class="card-footer">
+                <input type="submit" value="Actualizar" class="btn btn-success"
+                       style="width:auto" />
+                <a asp-action="Index" asp-route-id="@ViewBag.userId"
+                   class="btn btn-warning" style="width:auto">Cancelar</a>
+            </div>
+        </div>
+    </form>
+</div>

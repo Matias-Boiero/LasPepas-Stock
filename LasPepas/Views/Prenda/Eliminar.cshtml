@@ -5,8 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3 class="text-danger text-bolder">¿Estás seguro de eliminar el artículo?</h3>
-<div class="row col-md-8">
+
+<div class="row col-md-8 me-3 ms-3">
+    <h3 class="text-danger text-bolder">¿Estás seguro de eliminar el artículo?</h3>
     <div class="col-md-4">
 
         <hr />
@@ -54,18 +55,25 @@
             <dd class="col-12 text-secondary">
                 @Html.DisplayFor(model => model.VentaContado)
             </dd>
-            <dt class="col-12">
-                @Html.DisplayNameFor(model => model.VentaCtaCorriente)
-            </dt>
-            <dd class="col-12 text-secondary">
-                @Html.DisplayFor(model => model.VentaCtaCorriente)
-            </dd>
             <dt class="col-12 ">
                 @Html.DisplayNameFor(model => model.VentaTarjeta)
             </dt>
             <dd class="col-12 text-secondary">
                 @Html.DisplayFor(model => model.VentaTarjeta)
             </dd>
+            <dt class="col-12">
+                @Html.DisplayNameFor(model => model.VentaCtaCorriente)
+            </dt>
+            <dd class="col-12 text-secondary">
+                @Html.DisplayFor(model => model.VentaCtaCorriente)
+            </dd>
+            <dt class="col-12">
+                @Html.DisplayNameFor(model => model.Condicional)
+            </dt>
+            <dd class="col-12 text-danger">
+                @Html.DisplayFor(model => model.Condicional)
+            </dd>
+
             <dt class="col-12">
                 @Html.DisplayNameFor(model => model.Cliente)
             </dt>
@@ -81,11 +89,13 @@
         </dl>
 
     </div>
-    <form asp-action="Eliminar">
-        <div class="col-8 btn-group">
-            <input type="submit" value="Eliminar" class="btn btn-danger fw-bolder col-6 rounded-1" />
-            <a class="btn btn-secondary text-white fw-bold col-6 rounded-1 ms-1" asp-action="Index">Regresar</a>
-            <input type="hidden" asp-for="Id" />
-        </div>
-    </form>
+    <div class="mb-3 col-md-8">
+        <form asp-action="Eliminar">
+            <div class="col-md-12 btn-group">
+                <button type="submit" class="btn btn-danger fw-bolder  rounded-1"><i class="fa-solid fa-trash"></i>&nbspEliminar</button>
+                <a class="btn btn-secondary text-white fw-bold rounded-1 ms-1" asp-action="Index"><i class="fa-solid fa-hand-point-left"></i>&nbspRegresar</a>
+                <input type="hidden" asp-for="Id" />
+            </div>
+        </form>
+    </div>
 </div>

@@ -1,21 +1,13 @@
 ﻿@model IEnumerable<LasPepas.Entidades.Prenda>
-
+@using Microsoft.AspNetCore.Identity
     @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 @{
     var message = ViewBag.SuccessMsg;
 }
-
-<h1 class="text-warning">Lista de prendas</h1>
-
-
-<div class="col-md-3 form-group d-grid">
-    <a asp-action="Crear" class="btn btn-success col-12 fw-bolder mb-3">Registrar prenda</a>
-</div>
 
 
 
@@ -27,90 +19,126 @@
     </div>
 }
 
+
+
 @if (Model.Count() > 0)
 {
-    <div class="col-md-6">
-        <table border="0" cellspacing="5" cellpadding="5">
-            <tbody>
-                <tr class="col-6">
-                    <td class="text-warning">Precio Mínimo:</td>
-                    <td><input type="text" id="min" name="min"></td>
-                </tr>
-                <tr class="col-6">
-                    <td class="text-warning">Precio Máximo:</td>
-                    <td><input type="text" id="max" name="max"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <div class="table-responsive-lg mb-5">
 
-    <div class=table-responsive>
         <div class="table login-row">
-            <div class="">
+
+            <div class="container" style="margin:0;">
+                <div class="row col-md-12">
+                    <h1 class="text-secondary text-center fw-normal display-5 mt-3 mb-4"><i class="fa-solid fa-shirt"></i>&nbspLista de prendas&nbsp<i class="fa-solid fa-shirt text-success"></i></h1>
+                    <div class="col-md-6">
+                        <div class="form-group d-grid col-md-6 col-lg-6">
+                            <a asp-action="Crear" class="btn btn-success col-12 fw-bolder mb-3"><i class="fa-solid fa-cash-register"></i>&nbsp&nbspRegistrar prenda</a>
+                        </div>
+
+
+                        <table border="0" cellspacing="5" cellpadding="5">
+                            <tbody>
+                                <tr class="col-4">
+                                    <td class="text-info fw-bold">Precio Mínimo:</td>
+                                    <td><input type="text" id="min" name="min"></td>
+                                </tr>
+                                <tr class="col-6">
+                                    <td class="text-info fw-bold">Precio Máximo:</td>
+                                    <td><input type="text" id="max" name="max"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-md-3  mt-2">
+                            @*<h4 class="text-secondary fw-bold text-info align-content-end fs-6">Por favor escaneá el código</h4>*@
+                            <i class="fa-solid fa-qrcode text-danger"></i>
+                            <strong class="text-secondary ">Código: </strong>
+                            <div class="text-primary" id="last-barcode"></div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div>
                 <table class="table table-light table-striped table-bordered col-lg-6 display" id="tabla">
                     <thead>
                         <tr class="col-md-12">
-                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center"> Código</th>
-                            <th scope="col" class="col-md-3 text-secondary fw-bolder text-center">Fecha de registro</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center"> Código</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Fecha registro</th>
                             <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Marca</th>
                             <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Tipo de prenda</th>
-                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Temporada</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Temp.</th>
                             <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Descripción</th>
-                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Talle</th>
-                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Precio</th>
-                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Disponible</th>
-                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Venta al Contado</th>
-                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Cuenta Corriente</th>
-                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Trjeta de Crédito</th>
-                            <th scope="col" class="col-md-3 text-secondary fw-bolder text-center">Cliente</th>
-                            <th scope="col" class="col-md-3 text-secondary fw-bolder text-center">Observaciones</th>
-                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Tipo de Venta</th>
-                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Fecha venta</th>
-                            <th scope="col" class="col-md-3 text-secondary fw-bolder text-center">Acciones</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Color</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Talle</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Disponible / Vendido</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Precio</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Contado / Débito</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">T. Crédito</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Cuenta Corriente</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Condicional</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Cliente</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Fecha venta</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Vendió</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Acción</th>
                         </tr>
                     </thead>
-
-                    <tfoot>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="text-primary"></td>
-                            <td class="text-success"></td>
-                            <td class="text-danger"></td>
-                            <td class="text-success"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tfoot>
+                    @if (@User.IsInRole("Administrador"))
+                    {
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="bg-info fw-bold text-white text-center"></td>
+                                <td class="bg-success text-center fw-bold text-white"></td>
+                                <td class="bg-success text-center fw-bold text-white"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    }
                     <tbody>
                         @foreach (var item in Model)
                         {
                             <tr class="col-md-6 text-center">
-                                <td scope="col">@item.Id</td>
+                                <td scope="col">@item.Codigo</td>
                                 <td scope="col">@item.FechaCreacion.ToString("dd/MM/yy")</td>
                                 <td class="text-success" scope="col">@item.Marca</td>
                                 <td scope="col">@item.TipoPrenda</td>
-                                <td class="text-primary" scope="col">@item.Temporada</td>
+                                <td class="text-info" scope="col">@item.Temporada</td>
                                 <td scope="col">@item.Descripción</td>
+                                @if (item.Observaciones == null)
+                                {
+                                    <td scope="col">Sin detalles</td>
+                                }
+                                else
+                                {
+                                    <td scope="col">@item.Observaciones</td>
+                                }
                                 <td scope="col">@item.Talle</td>
-                                <td class="text-success" scope="col">@item.Precio</td>
+
                                 @if (item.Disponible == true)
                                 {
-                                    <td scope="col"><i class="fa-solid fa-square-check fs-3 text-success"></i></td>
+                                    <td scope="col"><i class="fa-solid fa-clipboard-check fs-3 text-success"></i></td>
                                 }
                                 else
                                 {
                                     <td scope="col"><i class="fa-solid fa-cart-arrow-down fs-3 text-danger"></i></td>
                                 }
+                                <td class="text-success" scope="col">@item.Precio</td>
                                 @if (item.VentaContado == null)
                                 {
                                     <td scope="col">0</td>
@@ -119,22 +147,31 @@
                                 {
                                     <td class="text-success" scope="col">@item.VentaContado</td>
                                 }
-                                @if (item.VentaCtaCorriente == null)
-                                {
-                                    <td scope="col">0</td>
-                                }
-                                else
-                                {
-                                    <td class="text-danger" scope="col">@item.VentaCtaCorriente</td>
-                                }
                                 @if (item.VentaTarjeta == null)
                                 {
                                     <td scope="col">0</td>
                                 }
                                 else
                                 {
-                                    <td scope="col">@item.VentaTarjeta</td>
+                                    <td class="text-success" scope="col">@item.VentaTarjeta</td>
                                 }
+                                @if (item.VentaCtaCorriente == false)
+                                {
+                                    <td class="text-info" scope="col">NO</td>
+                                }
+                                else
+                                {
+                                    <td scope="col"><i class="fa-regular fa-circle-check text-warning fs-3"></i></td>
+                                }
+                                @if (item.Condicional == false)
+                                {
+                                    <td class="text-info" scope="col">NO</td>
+                                }
+                                else
+                                {
+                                    <td class="text-success" scope="col"><i class="fa-regular fa-circle-check text-warning fs-3"></i></td>
+                                }
+
 
                                 @if (item.Cliente == null)
                                 {
@@ -144,27 +181,24 @@
                                 {
                                     <td class="text-primary" scope="col">@item.Cliente</td>
                                 }
-                                @if (item.Cliente == null)
+
+                                <td scope="col" id="FechaVenta">@item.FechaVenta</td>
+                                @if (item.Vendedor == 0)
                                 {
-                                    <td scope="col">No hay observación</td>
+                                    <td scope="col">Sin vendedora</td>
                                 }
                                 else
                                 {
-                                    <td class="text-danger" scope="col">@item.Observaciones</td>
+                                    <td scope="col">@item.Vendedor</td>
                                 }
-                                @if (item.TipoVenta == null)
-                                {
-                                    <td scope="col">Sin especificar</td>
-                                }
-                                else
-                                {
-                                    <td class="text-success" scope="col">@item.TipoVenta</td>
-                                }
-                                <td scope="col">@item.FechaVenta</td>
                                 <td scope="col">
                                     <a asp-action="Editar" asp-route-id="@item.Id"><i class="fa-solid fa-cart-arrow-down text-success"></i></a> |
                                     <a asp-action="Detalle" asp-route-id="@item.Id"><i class="fa-solid fa-eye text-primary"></i></a> |
-                                    <a asp-action="Eliminar" asp-route-id="@item.Id"><i class="fa-regular fa-trash-can text-danger "></i></a>
+                                    @if (@User.IsInRole("Administrador"))
+                                    {
+                                        <a asp-action="Eliminar" asp-route-id="@item.Id"><i class="fa-regular fa-trash-can text-danger "></i></a>
+                                    }
+
                                 </td>
 
                             </tr>
@@ -178,6 +212,9 @@
 }
 else
 {
+    <div class="form-group d-grid col-md-2 col-lg-2">
+        <a asp-action="Crear" class="btn btn-success col-12 fw-bolder mb-3"><i class="fa-solid fa-cash-register"></i>&nbsp&nbspRegistrar prenda</a>
+    </div>
     <p class="text--white">No hay prendas para mostrar</p>
 }
 
@@ -186,8 +223,6 @@ else
     @{
     await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-
-
 
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.11.5/api/sum().js"></script>
@@ -198,7 +233,6 @@ else
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-
 
 <script type="text/javascript">
 
@@ -211,12 +245,12 @@ else
                            "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
                            "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
                            "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-                           "sSearch": "Buscar:",
+                           "sSearch": "Buscar: ",
                            "oPaginate": {
                                "sFirst": "Primero",
                                "sLast":"Último",
-                               "sNext":"Siguiente",
-                               "sPrevious": "Anterior"
+                               "sNext":" Siguiente",
+                               "sPrevious": "Anterior "
                             },
                             "sProcessing":"Procesando...",
                        },
@@ -227,7 +261,7 @@ else
                        {
                            extend:    'excelHtml5',
                            exportOptions: {
-                           columns: [ 0, 1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15]
+                           columns: [0, 1, 2, 3,4,5,6,7,9,10,11,14,15]
                        },
                            text:      '<i class="fas fa-file-excel"></i> ',
                            filename: 'Prendas-Las-Pepas',
@@ -238,7 +272,7 @@ else
                        {
                            extend:    'pdfHtml5',
                            exportOptions: {
-                           columns: [ 0, 1, 2, 3,4,5,6,7,9,10,11,12,13,15]
+                           columns: [ 0, 1, 2, 3,4,5,6,7,9,10,11,14,15]
                        },
                            text:      '<i class="fas fa-file-pdf"></i> ',
                            filename:'Prendas-Las-Pepas',
@@ -252,7 +286,7 @@ else
 
                            extend:    'print',
                            exportOptions: {
-                           columns: [0, 1, 2, 3,4,5,6,7,9,10,11,12,13,14,15]
+                           columns: [0, 1, 2, 3,4,5,6,7,9,10,11,14,15]
                        },
                            text:      '<i class="fa fa-print"></i> ',
                             filename: 'Prendas-Las-Pepas',
@@ -272,46 +306,61 @@ else
                             i : 0;
                 };
 
-                // computing column Total of the complete result
-                var contadoTotal = api
-                    .column( 9 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(parseInt(a)) + intVal(parseInt(b));
-                    }, 0 );
+                 var contado = api
+               .column( 10 )
+               .data()
+               .reduce( function (a, b) {
+                   return intVal(parseInt(a)) + intVal(parseInt(b));
+               }, 0 );
 
-                     // Total over this page
-                   pageTotal = api
-                       .column(9, { page: 'current' })
-                       .data()
-                       .reduce(function (a, b) {
-                           return intVal(parseInt(a)) + intVal(parseInt(b));
-                       }, 0);
+                // Total over this page
+              pageTotalContado = api
+                  .column(10, { page: 'current' })
+                  .data()
+                  .reduce(function (a, b) {
+                      return intVal(parseInt(a)) + intVal(parseInt(b));
+                  }, 0);
 
-            var ctaCorrienteTotal = api
-                    .column( 10 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(parseInt(a)) + intVal(parseInt(b));
-                    }, 0 );
 
-                     pageTotal1 = api
-                       .column(10, { page: 'current' })
-                       .data()
-                       .reduce(function (a, b) {
-                           return intVal(parseInt(a)) + intVal(parseInt(b));
-                       }, 0);
+                var entrega = api
+               .column( 11 )
+               .data()
+               .reduce( function (a, b) {
+                   return intVal(parseInt(a)) + intVal(parseInt(b));
+               }, 0 );
+
+                // Total over this page
+              pageTotalEntrega = api
+                  .column(11, { page: 'current' })
+                  .data()
+                  .reduce(function (a, b) {
+                      return intVal(parseInt(a)) + intVal(parseInt(b));
+                  }, 0);
+
+                 var ctaCorrienteTotal = api
+                         .column( 12 )
+                         .data()
+                         .reduce( function (a, b) {
+                             return intVal(parseInt(a)) + intVal(parseInt(b));
+                         }, 0 );
+
+                          pageTotalCorriente = api
+                            .column(12, { page: 'current' })
+                            .data()
+                            .reduce(function (a, b) {
+                                return intVal(parseInt(a)) + intVal(parseInt(b));
+                            }, 0);
 
 
                 var creditoTotal = api
-                    .column( 11 )
+                    .column( 13 )
                     .data()
                     .reduce( function (a, b) {
                         return intVal(parseInt(a)) + intVal(parseInt(b));
                     }, 0 );
 
-                     pageTotal2 = api
-                       .column(11, { page: 'current' })
+                     pageTotalCredito = api
+                       .column(13, { page: 'current' })
                        .data()
                        .reduce(function (a, b) {
                            return intVal(parseInt(a)) + intVal(parseInt(b));
@@ -319,13 +368,11 @@ else
 
 
                 // Update footer by showing the total with the reference of the column index
-             $( api.column( 8 ).footer() ).html('Total');
-             $(api.column(9).footer()).html('$' + pageTotal + ' ( $' + contadoTotal + ' total)');
-              $(api.column(10).footer()).html('$' + pageTotal1 + ' ( $' + ctaCorrienteTotal + ' total)');
-               $(api.column(11).footer()).html('$' + pageTotal2 + ' ( $' + creditoTotal + ' total)');
+             $( api.column( 9 ).footer() ).html('Total');
+             $(api.column(10).footer()).html('Total efectivo $' + pageTotalContado );
+              $(api.column(11).footer()).html('Total t. crédito $' + pageTotalEntrega );
 
     },
-
                });
 
            });
@@ -337,7 +384,7 @@ else
                               function( settings, data, dataIndex ) {
                                   var min = $('#min').val() * 1;
                                   var max = $('#max').val() * 1;
-                                  var precio = parseFloat( data[7] ) || 0; // use data for the precio column
+                                  var precio = parseFloat( data[9] ) || 0; // use data for the precio column
                                   if ( ( min == '' && max == '' ) ||
                                        ( min == '' && precio <= max ) ||
                                        ( min <= precio && '' == max ) ||
@@ -356,7 +403,30 @@ else
                           } );
 
 
+                           //Codigo para scanear codigos de barra
+    var barcode = '';
+           var interval;
+           document.addEventListener('keydown', function(evt) {
+               if (interval)
+                   clearInterval(interval);
+               if (evt.code == 'Enter') {
+                   if (barcode)
+                       handleBarcode(barcode);
+                   barcode = '';
+                   return;
+               }
+               if (evt.key != 'Shift')
+                   barcode += evt.key;
+               interval = setInterval(() => barcode = '', 20);
+           });
 
+           function handleBarcode(scanned_barcode) {
+               document.querySelector('#last-barcode').innerHTML = scanned_barcode;
+           }
+
+            $(document).ready(function () {
+        $('#FechaVenta').datepicker();
+    });
 
 </script>
 

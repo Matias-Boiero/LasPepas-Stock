@@ -1,0 +1,81 @@
+﻿@using LasPepas.Entidades.Enums
+@using LasPepas.Enums
+@model LasPepas.Entidades.Caja
+
+@{
+    ViewData["Title"] = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="ms-2 me-2 mt-4">
+    <h4 class="text-secondary fw-bold">Registrar operación</h4>
+
+    <form asp-action="Crear">
+        <div class="row col-md-12">
+            <div class="col-md-4  t">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group mb-2">
+                    <input asp-for="FechaCreacion" placeholder="--Fecha del registro--" class="form-control" stye="" />
+                    <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <input asp-for="NombreCliente" placeholder="--Cliente--" class="form-control" style="color:#187498;" />
+                    <span asp-validation-for="NombreCliente" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+
+                    @Html.DropDownList("FormaPago_1", Html.GetEnumSelectList<FormaPago_1>(), "--Selec. forma pago efectivo--", new { @class = "form-control" })
+                </div>
+                <div class="form-group mb-2">
+                    @Html.DropDownList("FormaPago_2", Html.GetEnumSelectList<FormaPago_2>(), "--Selec. forma pago bancarizado--", new { @class = "form-control" })
+                </div>
+                <div class="form-group mb-2">
+                    <input asp-for="IngresoEfectivo" placeholder="--Monto en efectivo--" class="form-control" style="color:#187498;" />
+                </div>
+                <div class="form-group mb-2">
+                    <input asp-for="IngresoBancario" placeholder="--Monto Déb/Tarj/MP/Transf--" class="form-control" style="color:#187498;" />
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <hr class="text-success" />
+                <div class="form-group mb-2">
+                    <input asp-for="TipoTarjeta" placeholder="--Nombre de la tarjeta--" class="form-control" style="color:#187498;" />
+                </div>
+                <div class="form-group mb-2">
+                    <input asp-for="NroCuotas" placeholder="--Nro. de cuotas--" class="form-control" style="color:#187498;" />
+                </div>
+                <div class="form-group mb-2">
+                    <input asp-for="Egreso" placeholder="--Egreso--" class="form-control" style="color:#187498;" />
+                </div>
+                <div class="form-group mb-2">
+                    <input asp-for="TipoEgreso" placeholder="--Motivo del egreso--" class="form-control" style="color:#187498;" />
+                </div>
+                <div class="form-group mb-2">
+                    <input asp-for="Cambio" placeholder="--Cambio--" class="form-control" style="color:#187498;" />
+                </div>
+
+
+
+            </div>
+            <div class="form-group mb-2 d-grid gap-2 col-md-8 mt-2">
+                <button type="submit" value="" class="btn btn-success"><i class="fa-sharp fa-solid fa-circle-check"></i>&nbspGuardar operación</button>
+            </div>
+        </div>
+
+
+    </form>
+
+    <div>
+        <a asp-action="Index" class="mb-3">Regresar</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

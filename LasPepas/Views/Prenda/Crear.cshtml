@@ -7,102 +7,85 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-warning">Crear</h1>
 
-<h4 class="text-warning">Prenda</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Crear">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group mb-2">
-                <input asp-for="Id" placeholder="Código" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-2">
-                <input asp-for="FechaCreacion" placeholder="Fecha de creación" class="form-control" />
-                <span asp-validation-for="FechaCreacion" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-2">
+<div class="ms-2 me-2 mt-4">
+    <h4 class="text-secondary fw-bold">Registrar prenda</h4>
+    <hr />
+    <form asp-action="Crear">
+        <div class="row col-md-12">
 
-                @Html.DropDownList("Marca", Html.GetEnumSelectList<Marca>(), "--Seleccionar marca--", new { @class = "form-control" })
-                <span asp-validation-for="Marca" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-2">
-                @Html.DropDownList("TipoPrenda", Html.GetEnumSelectList<TipoPrenda>(), "--Seleccionar Tipo de prenda--", new { @class = "form-control" })
-                <span asp-validation-for="TipoPrenda" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-2">
+            <div class="col-md-4">
 
-                @Html.DropDownList("Temporada", Html.GetEnumSelectList<Temporada>(), "--Seleccionar temporada-", new { @class = "form-control" })
-                <span asp-validation-for="Temporada" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-2">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group mb-2">
+                    <input asp-for="Codigo" placeholder="Código" class="form-control" style="color:#187498;" />
+                    <span asp-validation-for="Codigo" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <input asp-for="FechaCreacion" placeholder="Fecha de creación" class="form-control" />
+                    <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
 
-                <input asp-for="Descripción" placeholder="Descripción del articulo" class="form-control" />
-                <span asp-validation-for="Descripción" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-2">
+                    @Html.DropDownList("Marca", Html.GetEnumSelectList<Marca>(), "--Seleccionar marca--", new { @class = "form-control" })
+                    <span asp-validation-for="Marca" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    @Html.DropDownList("TipoPrenda", Html.GetEnumSelectList<TipoPrenda>(), "--Seleccionar Tipo de prenda--", new { @class = "form-control" })
+                    <span asp-validation-for="TipoPrenda" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
 
-                <input asp-for="Talle" placeholder="Talle" class="form-control" />
-                <span asp-validation-for="Talle" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-2">
-                <input asp-for="Precio" placeholder="Precio" class="form-control" />
-                <span asp-validation-for="Precio" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check mb-2">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Disponible" /> @Html.DisplayNameFor(model => model.Disponible)
-                </label>
-            </div>
-            <div class="form-group mb-2">
-                <input asp-for="VentaContado" placeholder="Pago al contado/débito" class="form-control" />
-                <span asp-validation-for="VentaContado" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-2">
+                    @Html.DropDownList("Temporada", Html.GetEnumSelectList<Temporada>(), "--Seleccionar temporada--", new { @class = "form-control" })
+                    <span asp-validation-for="Temporada" class="text-danger"></span>
+                </div>
 
-                <input asp-for="VentaCtaCorriente" placeholder="Pago en cuenta corriente" class="form-control" />
-                <span asp-validation-for="VentaCtaCorriente" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-2">
 
-                <input asp-for="VentaTarjeta" placeholder="Pago con tarjeta de crédito" class="form-control" />
-                <span asp-validation-for="VentaTarjeta" class="text-danger"></span>
             </div>
-            @*  <div class="form-group">
-                <input asp-for="FechaVenta" class="form-control" />
-                <span asp-validation-for="FechaVenta" class="text-danger"></span>
-                </div>*@
 
-            @*<div class="form-group">
-                @Html.DropDownList("TipoVenta", Html.GetEnumSelectList<TipoVenta>(), "--Seleccionar Tipo de venta--", new { @class = "form-control" })
-                <span asp-validation-for="TipoVenta" class="text-danger"></span>
-                </div>*@
-            <div class="form-group mb-2">
-                <input asp-for="Cliente" placeholder="Nombre del cliente/a" class="form-control" />
-                <span asp-validation-for="Cliente" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-2">
+            <div class="col-md-4">
+                <div class="form-group mb-2">
+                    <input asp-for="Descripción" placeholder="Descripción del articulo" class="form-control" style="color:#187498;" />
+                    <span asp-validation-for="Descripción" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
 
-                <input asp-for="Observaciones" placeholder="Observaciones" class="form-control" />
-                <span asp-validation-for="Observaciones" class="text-danger"></span>
+                    <input asp-for="Talle" placeholder="Talle" class="form-control" style="color:#187498;" />
+                    <span asp-validation-for="Talle" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+
+                    <input asp-for="Observaciones" placeholder="Color" class="form-control" style="color:#187498;" />
+                    <span asp-validation-for="Observaciones" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <input asp-for="Precio" placeholder="Precio" class="form-control" style="color:#187498;" />
+                    <span asp-validation-for="Precio" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check mb-2">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Disponible" /> @Html.DisplayNameFor(model => model.Disponible)
+                    </label>
+                </div>
             </div>
-            <div class="form-group mb-2">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="col-md-4">
+                <h3 class="text-secondary fw-bold">Por favor escanea el código</h3>
+                <i class="fa-solid fa-qrcode text-danger"></i>
+                <strong class="text-secondary">Código: </strong>
+                <div class="text-primary" id="last-barcode"></div>
             </div>
-        </form>
+            <div class="form-group mb-2 d-grid gap-2 col-md-8 mt-2">
+                <button type="submit" value="" class="btn btn-success"><i class="fa-sharp fa-solid fa-circle-check"></i>&nbsp Registrar prenda</button>
+            </div>
+        </div>
+
+
+    </form>
+
+    <div>
+        <a asp-action="Index" class="mb-3">Regresar</a>
     </div>
-    <div class="col-md-4">
-        <h3 class="text-secondary fw-bold">Por favor escanea el código</h3>
-        <i class="fa-solid fa-qrcode text-danger"></i>
-        <strong class="text-secondary">Código: </strong>
-        <div class="text-primary" id="last-barcode"></div>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Regresar</a>
 </div>
 
 @section Scripts {

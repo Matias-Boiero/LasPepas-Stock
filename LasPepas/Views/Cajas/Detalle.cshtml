@@ -1,0 +1,103 @@
+﻿@using LasPepas.Entidades.Enums
+@using LasPepas.Enums
+@model LasPepas.Entidades.Caja
+
+@{
+    ViewData["Title"] = "Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="ms-4 me-4 mb-5">
+    <h2 class="text-success fw-bolder mb-3">--Detalle Caja--</h2>
+    <form asp-action="Editar">
+        <div class="row col-md-12">
+            <div class="col-md-4">
+
+                <hr />
+                <dl class="fw-bold">
+                    <dt class="col-12 ">
+                        @Html.DisplayNameFor(model => model.FechaCreacion)
+                    </dt>
+                    <dd class="col-12 text-secondary">
+                        @Html.DisplayFor(model => model.FechaCreacion)
+                    </dd>
+                    <dt class="col-12 ">
+                        @Html.DisplayNameFor(model => model.NombreCliente)
+                    </dt>
+                    <dd class="col-12 text-secondary">
+                        @Html.DisplayFor(model => model.NombreCliente)
+                    </dd>
+                    <dt class="col-12 ">
+                        @Html.DisplayNameFor(model => model.FormaPago_1)
+                    </dt>
+                    <dd class="col-12 text-secondary">
+                        @Html.DisplayFor(model => model.FormaPago_1)
+                    </dd>
+                    <dt class="col-12 ">
+                        @Html.DisplayNameFor(model => model.FormaPago_2)
+                    </dt>
+                    <dd class="col-12 text-secondary">
+                        @Html.DisplayFor(model => model.FormaPago_2)
+                    </dd>
+                    <dt class="col-12 ">
+                        @Html.DisplayNameFor(model => model.IngresoEfectivo)
+                    </dt>
+                    <dd class="col-12 text-secondary">
+                        @Html.DisplayFor(model => model.IngresoEfectivo)
+                    </dd>
+                </dl>
+            </div>
+
+            <div class="col-md-4">
+                <dl class="fw-bold">
+                    <hr />
+
+                    <dt class="col-12 ">
+                        @Html.DisplayNameFor(model => model.IngresoBancario)
+                    </dt>
+                    <dd class="col-12 text-secondary">
+                        @Html.DisplayFor(model => model.IngresoBancario)
+                    </dd>
+                    <dt class="col-12 ">
+                        @Html.DisplayNameFor(model => model.TipoTarjeta)
+                    </dt>
+                    <dd class="col-12 text-secondary">
+                        @Html.DisplayFor(model => model.TipoTarjeta)
+                    </dd>
+                    <dt class="col-12 ">
+                        @Html.DisplayNameFor(model => model.NroCuotas)
+                    </dt>
+                    <dd class="col-12 text-secondary">
+                        @Html.DisplayFor(model => model.NroCuotas)
+                    </dd>
+                    <dt class="col-12 ">
+                        @Html.DisplayNameFor(model => model.Egreso)
+                    </dt>
+                    <dd class="col-12 text-secondary">
+                        @Html.DisplayFor(model => model.TipoEgreso)
+                    </dd>
+                    <dt class="col-12 ">
+                        @Html.DisplayNameFor(model => model.Cambio)
+                    </dt>
+                    <dd class="col-12 text-secondary">
+                        @Html.DisplayFor(model => model.Cambio)
+                    </dd>
+                </dl>
+
+            </div>
+
+            <div class="mb-2">
+                <a asp-action="Index">Regresar</a>
+            </div>
+        </div>
+
+    </form>
+
+
+
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

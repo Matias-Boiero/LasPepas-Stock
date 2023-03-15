@@ -1,0 +1,43 @@
+﻿@model List<LasPepas.Models.ViewModel.UserRolesViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 class="text-secondary">Roles de Usuarios</h1>
+<div class="table-responsive col-md-6">
+    <div class="table">
+        <table class="table table-striped tabla-roles" id="MyTable">
+            <thead>
+                <tr>
+
+                    <th>Email</th>
+                    <th>Roles</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr class="fw-bold">
+
+                        <td class="text-dark">@user.Email</td>
+                        <td class="text-success">@string.Join(" , ", user.Roles.ToList())</td>
+                        <td>
+                            <a class="btn btn-secondary fw-bolder" asp-controller="UserRoles" asp-action="Manage" asp-route-userId="@user.UserId">Roles activos</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+@section scripts{
+     @{
+    <partial name="_ValidationScriptsPartial" />
+}
+}
+

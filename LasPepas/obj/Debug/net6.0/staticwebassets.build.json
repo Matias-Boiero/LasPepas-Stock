@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Jbh+G/qMvmlpKalHmNXc0WS/Jvxe0k2bAMe/F3sw8Zs=",
+  "Hash": "ZkfLHOfVDWPHCdQw3sOUZf/l44f6FAuOvxfMlLv1oLI=",
   "Source": "LasPepas",
   "BasePath": "_content/LasPepas",
   "Mode": "Default",
@@ -49,6 +49,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\maty_\\source\\repos\\LasPepas\\LasPepas\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\LasPepas.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\maty_\\source\\repos\\LasPepas\\LasPepas\\wwwroot\\css\\minty.css",
+      "SourceId": "LasPepas",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\maty_\\source\\repos\\LasPepas\\LasPepas\\wwwroot\\",
+      "BasePath": "_content/LasPepas",
+      "RelativePath": "css/minty.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\minty.css"
+    },
+    {
+      "Identity": "C:\\Users\\maty_\\source\\repos\\LasPepas\\LasPepas\\wwwroot\\css\\minty.min.css",
+      "SourceId": "LasPepas",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\maty_\\source\\repos\\LasPepas\\LasPepas\\wwwroot\\",
+      "BasePath": "_content/LasPepas",
+      "RelativePath": "css/minty.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\minty.min.css"
     },
     {
       "Identity": "C:\\Users\\maty_\\source\\repos\\LasPepas\\LasPepas\\wwwroot\\css\\site.css",

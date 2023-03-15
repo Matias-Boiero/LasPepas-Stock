@@ -6,9 +6,11 @@ namespace LasPepas.Entidades
 {
     public class Prenda
     {
+        [Key]
+        public int Id { get; set; }
         [Required(ErrorMessage = "El código es requerido")]
         [MaxLength(20)]
-        public string Id { get; set; }
+        public string Codigo { get; set; }
         [Required(ErrorMessage = "La fecha es requerida")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -26,21 +28,22 @@ namespace LasPepas.Entidades
         [Required(ErrorMessage = "El talle es requerido")]
         [MaxLength(10)]
         public string Talle { get; set; }
-        [Required(ErrorMessage = "El Precio es requerido")]
-        [Range(1, 60000)]
-        public decimal Precio { get; set; }
+        public decimal? Precio { get; set; }
         [Required]
         public bool Disponible { get; set; }
         public decimal? VentaContado { get; set; }
-        public decimal? VentaCtaCorriente { get; set; }
+        //public decimal? Entrega { get; set; }
+        public bool VentaCtaCorriente { get; set; }
+        public bool Condicional { get; set; }
         public decimal? VentaTarjeta { get; set; }
+        [Display(Name = "Fecha de venta de la prenda")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? FechaVenta { get; set; }
-        public TipoVenta? TipoVenta { get; set; }
         [MaxLength(40)]
         public string? Cliente { get; set; }
         [MaxLength(50)]
         public string? Observaciones { get; set; }
+        public Vendedor? Vendedor { get; set; }
     }
 }

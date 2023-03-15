@@ -2,10 +2,12 @@
 using LasPepas.Aplicacion;
 using LasPepas.Entidades;
 using LasPepas.Entidades.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LasPepas.Controllers
 {
+    [Authorize(Roles = "Administrador, vendedor")]
     public class PrendaController : Controller
     {
         private readonly IAplicacion<Prenda> _aplicacion;
@@ -49,7 +51,7 @@ namespace LasPepas.Controllers
         }
 
 
-        public async Task<ActionResult<PrendaCreacionDTO>> Editar(string id)
+        public async Task<ActionResult<PrendaCreacionDTO>> Editar(int id)
         {
             if (id == null)
             {
@@ -70,22 +72,23 @@ namespace LasPepas.Controllers
         [HttpPost]
         [AutoValidateAntiforgeryToken]
 
-        public async Task<IActionResult> Editar(string id, PrendaCreacionDTO prendaCreacion)
+        public async Task<IActionResult> Editar(int id, PrendaCreacionDTO prendaCreacion)
         {
             if (id != prendaCreacion.Id)
             {
                 return NotFound();
             }
-            Prenda prenda = _mapper.Map<Prenda>(prendaCreacion);
+            // var prenda = await _aplicacion.GetById(id);
+            var prenda = _mapper.Map<Prenda>(prendaCreacion);
             if (ModelState.IsValid)
             {
                 _aplicacion.Updtae(prenda);
                 return RedirectToAction(nameof(Index));
             }
-            return View(prenda);
+            return View(prendaCreacion);
         }
 
-        public async Task<IActionResult> Detalle(string id)
+        public async Task<IActionResult> Detalle(int id)
         {
 
             if (id == null)
@@ -102,9 +105,9 @@ namespace LasPepas.Controllers
         }
 
         // GET
-        public async Task<IActionResult> Eliminar(string id)
+        public async Task<IActionResult> Eliminar(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
@@ -121,13 +124,13 @@ namespace LasPepas.Controllers
 
         [HttpPost, ActionName("Eliminar")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EliminarConfirmar(string id)
+        public async Task<IActionResult> EliminarConfirmar(int id)
         {
             //var lote = _loteRepository.GetFirst(p => p.Id == id, incluirPropiedades: "Barrio");
             var prenda = await _aplicacion.GetById(id);
             if (prenda == null)
             {
-                return Problem("El lote solicitado no existe");
+                return Problem("El registro solicitado no existe");
             }
 
             if (prenda != null)

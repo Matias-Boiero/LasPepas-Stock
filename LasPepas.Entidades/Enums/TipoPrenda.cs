@@ -2,8 +2,15 @@
 {
     public enum TipoPrenda
     {
-        Prenda,
-        Calzado,
-        Accesorio
+        MIMO_JR,
+        MIMO_KIDS,
+        MIMO_MINI,
+        CHEEKY_BEBE,
+        CHEEKY_KIDS,
+        CHEEKY_SC,
+        CHEEKY_TODDLER,
+        PRENDA,
+        CALZADO,
+        ACCESORIO
     }
 }

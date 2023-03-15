@@ -10,6 +10,8 @@ namespace LasPepas.Servicios
         {
             CreateMap<Prenda, PrendaDTO>().ReverseMap();
             CreateMap<PrendaCreacionDTO, Prenda>().ReverseMap();
+            CreateMap<Caja, CajaDTO>().ReverseMap();
+            CreateMap<CajaCreacionDTO, Caja>().ReverseMap();
         }
     }
 }

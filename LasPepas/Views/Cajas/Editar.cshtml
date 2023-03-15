@@ -1,0 +1,92 @@
+﻿@using LasPepas.Entidades.Enums
+@using LasPepas.Enums
+@model LasPepas.Entidades.Dtos.CajaCreacionDTO
+
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="ms-4 me-4 mb-5">
+    <h2 class="text-success fw-bolder mb-3">--Editar Caja--</h2>
+    <form asp-action="Editar">
+        <div class="row col-md-12">
+            <div class="col-md-4 text-secondary">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group mb-2">
+                    <label asp-for="FechaCreacion" class="fw-bold mb-1">Fecha de registro</label>
+                    <input asp-for="FechaCreacion" disabled class="form-control" />
+                    <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                    <input type="hidden" asp-for="FechaCreacion" />
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="NombreCliente" class="fw-bold mb-1">Cliente</label>
+                    <input asp-for="NombreCliente" class="form-control" />
+                    <input type="hidden" asp-for="NombreCliente" />
+
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="FormaPago_1" class="fw-bold mb-1">Forma pago efectivo</label>
+                    @Html.DropDownList("FormaPago_1", Html.GetEnumSelectList<FormaPago_1>(), "--Seleccionar tipo pago efectivo--", new { @class = "form-control" })
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="FormaPago_2" class="fw-bold mb-1">Forma pago bancarizado</label>
+                    @Html.DropDownList("FormaPago_2", Html.GetEnumSelectList<FormaPago_2>(), "--Seleccionar tipo pago bancarizado--", new { @class = "form-control" })
+                </div>
+
+                <div class="form-group mb-2">
+                    <label asp-for="IngresoEfectivo" class="fw-bold mb-1">Ingreso Efectivo</label>
+                    <input asp-for="IngresoEfectivo" class="form-control" />
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="IngresoBancario" class="fw-bold mb-1">Ingreso bancarizado</label>
+                    <input asp-for="IngresoBancario" class="form-control" />
+                </div>
+            </div>
+
+            <div class="col-md-4 text-secondary">
+                <hr class="text-success mb-3" />
+                <div class="form-group mb-2">
+                    <label asp-for="TipoTarjeta" class="fw-bold mb-1">Nombre de la tarjeta</label>
+                    <input asp-for="TipoTarjeta" class="form-control" />
+                </div>
+
+                <div class="form-group mb-2">
+                    <label asp-for="NroCuotas" class="fw-bold mb-1">Nro. de cuotas</label>
+                    <input asp-for="NroCuotas" class="form-control" />
+                    <input type="hidden" asp-for="NroCuotas" />
+
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="Egreso" class="fw-bold mb-1">Egreso</label>
+                    <input asp-for="Egreso" class="form-control" />
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="TipoEgreso" class="fw-bold mb-1">Motivo del egreso</label>
+                    <input asp-for="TipoEgreso" class="form-control" />
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Cambio" class="fw-bold mb-1">Cambio</label>
+                    <input asp-for="Cambio" class="form-control" />
+                </div>
+
+
+            </div>
+            <div class="form-group mt-2 d-grid gap-2 col-md-8 mb-2">
+                <button type="submit" class="btn btn-success"><i class="fa-solid fa-cart-shopping"></i>&nbspGuardar cambios</button>
+            </div>
+        </div>
+
+    </form>
+
+
+    <div class="mb-2">
+        <a asp-action="Index">Regresar</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

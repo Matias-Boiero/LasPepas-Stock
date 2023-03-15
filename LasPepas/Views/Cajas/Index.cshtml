@@ -1,0 +1,319 @@
+﻿@model IEnumerable<LasPepas.Entidades.Caja>
+@using Microsoft.AspNetCore.Identity
+    @{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var message = ViewBag.SuccessMsg;
+}
+
+<!-- Validacion para desplegar Mensaje despues del POST-->
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show col-md-4 text-center" role="alert">
+        @Html.Encode(TempData["success"])
+    </div>
+}
+
+@if (Model.Count() > 0)
+{
+    <div class="table-responsive-lg mb-5">
+        <div class="table login-row">
+            <div class="container" style="margin:0;">
+                <div class="row col-md-12">
+                    <h1 class="text-secondary text-center fw-normal display-5 mt-3 mb-4"><i class="fa-solid fa-cash-register text-success"></i>&nbsp&nbspCaja diaria&nbsp&nbsp<i class="fa-solid fa-cash-register text-success"></i></h1>
+                    <div class="col-md-6">
+                        <div class="form-group d-grid col-md-6 col-lg-6">
+                            <a asp-action="Crear" class="btn btn-success col-12 fw-bolder mb-3"><i class="fa-solid fa-cash-register"></i>&nbsp&nbspRealizar caja</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <table border="0" cellspacing="2" cellpadding="2">
+                    <tbody>
+                        <tr>
+                            <td class="text-info fw-bold">Fecha inicio:</td>
+                            <td><input type="text" class="form-control " id="min" name="min"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-info fw-bold">Fecha final:</td>
+                            <td><input type="text" class="form-control mt-1 mb-2" id="max" name="max"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-light table-striped table-bordered col-lg-6 display" id="tabla">
+                    <thead>
+                        <tr class="col-md-12">
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Fecha</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Cliente</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Efectivo</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Pago bancarizado</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Egreso</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Cambio</th>
+                            <th scope="col" class="col-md-1 text-secondary fw-bolder text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <td colspan="1" class="text-center fw-bold bg-info"></td>
+                            <td colspan="2" class="text-center fw-bold text-white" style="background:#539165;"></td>
+                            <td colspan="2" class="text-center fw-bold" style="background:#F0EB8D;"></td>
+                            <td colspan="2" class="text-center fw-bold text-white" style="background:#3A98B9;"></td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="col-md-6 text-center">
+                                <td scope="col">@item.FechaCreacion.ToString("dd/MM/yyyy")</td>
+                                <td class="text-dark fw-bold" scope="col">@item.NombreCliente</td>
+                                @if (item.IngresoEfectivo == null)
+                                {
+                                    <td scope="col">0</td>
+                                }
+                                else
+                                {
+                                    <td class="bg-success text-white fw-bold" scope="col">@item.IngresoEfectivo</td>
+                                }
+                                @if (item.IngresoBancario == null)
+                                {
+                                    <td scope="col">0</td>
+                                }
+                                else
+                                {
+                                    <td style="background:#F8F988;" class=" fw-bold" scope="col">@item.IngresoBancario</td>
+                                }
+                                @if (item.Egreso == null)
+                                {
+                                    <td scope="col">0</td>
+                                }
+                                else
+                                {
+                                    <td class="text-white fw-bold" style="background:#F94A29;" scope="col">@item.Egreso</td>
+                                }
+                                @if (item.Cambio == null)
+                                {
+                                    <td scope="col">0</td>
+                                }
+                                else
+                                {
+                                    <td style="background:#BAD7E9;" class=" fw-bold" scope="col">@item.Cambio</td>
+                                }
+                                <td scope="col">
+                                    <a asp-action="Editar" asp-route-id="@item.Id"><i class="fa-solid fa-file-pen text-success"></i></a> |
+                                    <a asp-action="Detalle" asp-route-id="@item.Id"><i class="fa-solid fa-eye text-primary"></i></a> |
+                                    @if (@User.IsInRole("Administrador"))
+                                    {
+                                        <a asp-action="Eliminar" asp-route-id="@item.Id"><i class="fa-regular fa-trash-can text-danger "></i></a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+else
+{
+    <div class="form-group d-grid col-md-2 col-lg-2">
+        <a asp-action="Crear" class="btn btn-success col-12 fw-bolder mb-3"><i class="fa-solid fa-cash-register"></i>&nbsp&nbspGenerar caja</a>
+    </div>
+    <p class="text--white">No hay registros para mostrar</p>
+}
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.4/date-1.1.1/datatables.min.js"></script>
+<link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.4/b-2.2.2/b-colvis-2.2.2/b-html5-2.2.2/b-print-2.2.2/datatables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.4/b-2.2.2/b-colvis-2.2.2/b-html5-2.2.2/b-print-2.2.2/datatables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.4/rg-1.1.4/datatables.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.4.0/css/dataTables.dateTime.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.4/b-2.2.2/b-colvis-2.2.2/b-html5-2.2.2/rg-1.1.4/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+
+
+
+<script>
+      $(document).ready(function() {
+               $('#tabla').DataTable({
+                   language: {
+                           "lengthMenu": "Mostrar _MENU_ registros",
+                           "zeroRecords": "No se encontraron resultados",
+                           "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                           "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                           "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                           "sSearch": "Buscar: ",
+                           "oPaginate": {
+                               "sFirst": "Primero",
+                               "sLast":"Último",
+                               "sNext":" Siguiente",
+                               "sPrevious": "Anterior "
+                            },
+                            "sProcessing":"Procesando...",
+                       },
+                       //para usar los botones
+       responsive: "true",
+       dom: 'Bfrtilp',
+       buttons:[
+           {
+               extend:    'excelHtml5',
+               exportOptions: {
+               columns: [0, 1, 2, 3,4,5]
+           },
+               text:      '<i class="fas fa-file-excel"></i> ',
+               filename: 'Prendas-Las-Pepas',
+               titleAttr: 'Exportar a Excel',
+               className: 'btn btn-success',
+               title:"Lista de prendas - Las Pepas"
+           },
+           {
+               extend:    'pdfHtml5',
+               exportOptions: {
+               columns: [ 0, 1, 2, 3,4,5]
+           },
+               text:      '<i class="fas fa-file-pdf"></i> ',
+               filename:'Prendas-Las-Pepas',
+                orientation: 'landscape', //portrait
+               pageSize: 'A4', //A3 , A5 , A6 , legal , letter
+               titleAttr: 'Exportar a PDF',
+               className: 'btn btn-danger',
+                title: "Lista de prendas -- Las Pepas - Santa Lucia (Corrientes)"
+           },
+           {
+
+               extend:    'print',
+               exportOptions: {
+               columns: [0, 1, 2, 3,4,5]
+           },
+               text:      '<i class="fa fa-print"></i> ',
+                filename: 'Prendas-Las-Pepas',
+               titleAttr: 'Imprimir',
+               className: 'btn btn-info',
+               title:"Lista de prendas -- Las Pepas - Santa Lucia (Corrientes)"
+           },
+       ],
+             footerCallback: function ( row, data, start, end, display ) {
+                var api = this.api(), data;
+
+                // converting to interger to find total
+                var intVal = function ( i ) {
+                    return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '')*1 :
+                        typeof i === 'number' ?
+                            i : 0;
+                };
+
+
+              pageTotalEfectivo = api
+                  .column(2, { page: 'current' })
+                  .data()
+                  .reduce(function (a, b) {
+                      return intVal(parseInt(a)) + intVal(parseInt(b));
+                  }, 0);
+
+                   pageTotalEgreso = api
+                  .column(4, { page: 'current' })
+                  .data()
+                  .reduce(function (a, b) {
+                      return intVal(parseInt(a)) + intVal(parseInt(b));
+                  }, 0);
+
+
+              pageTotalBancarizado = api
+                  .column(3, { page: 'current' })
+                  .data()
+                  .reduce(function (a, b) {
+                      return intVal(parseInt(a)) + intVal(parseInt(b));
+                  }, 0);
+
+                   pageTotalCambio = api
+                  .column(5, { page: 'current' })
+                  .data()
+                  .reduce(function (a, b) {
+                      return intVal(parseInt(a)) + intVal(parseInt(b));
+                  }, 0);
+
+
+                // Update footer by showing the total with the reference of the column index
+             $( api.column( 0 ).footer() ).html('Totales');
+             $(api.column(1).footer()).html('Total cierre caja efectivo $'+ (pageTotalEfectivo-pageTotalEgreso-pageTotalCambio));
+              $(api.column(3).footer()).html('Total cierre caja bancarizada $'+ (pageTotalBancarizado));
+
+               $(api.column(5).footer()).html('Total efec. + banc. $'+ ((pageTotalEfectivo-pageTotalEgreso-pageTotalCambio)+pageTotalBancarizado));
+    },
+
+               });
+           });
+
+
+       //FILTRO POR FECHAS
+         var minDate, maxDate;
+
+      // Custom filtering function which will search data in column four between two values
+      $.fn.dataTable.ext.search.push(
+          function( settings, data, dataIndex ) {
+              let min = moment($('#min').val(), 'DD/MM/YYYY', true).isValid() ?
+                  moment($('#min').val(), 'DD/MM/YYYY', true).unix() :
+                  null;
+
+               let max = moment($('#max').val(), 'DD/MM/YYYY').isValid() ?
+                   moment( $('#max').val(), 'DD/MM/YYYY', true ).unix():
+                   null;
+              var date = moment( data[0], 'DD/MM/YYYY', true ).unix();
+
+            console.log("min: " + min + ' ' + $('#min').val())
+            console.log($('#min').val() + ": " + moment($('#min').val(), 'DD/MM/YYYY', true).isValid())
+            console.log("max: " + max + ' ' + $('#min').val())
+
+              if (
+                  ( min === null && max === null ) ||
+                  ( min === null && date <= max ) ||
+                  ( min <= date   && max === null ) ||
+                  ( min <= date   && date <= max )
+              ) {
+                  return true;
+              }
+              return false;
+          }
+      );
+
+      $(document).ready(function() {
+          // Create date inputs
+          minDate = new DateTime($('#min'), {
+              format: 'DD/MM/YYYY'
+          });
+          maxDate = new DateTime($('#max'), {
+              format: 'DD/MM/YYYY'
+          });
+
+          // DataTables initialisation
+          var table = $('#tabla').DataTable();
+
+          // Refilter the table
+          $('#min, #max').on('change', function () {
+              table.draw();
+          });
+      });
+</script>
+}
+
+

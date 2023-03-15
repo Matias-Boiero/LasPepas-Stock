@@ -8,5 +8,7 @@
         Verano_2022,
         Invierno_2021,
         Verano_2021,
+        CONTINUO,
+        COLEGIAL
     }
 }

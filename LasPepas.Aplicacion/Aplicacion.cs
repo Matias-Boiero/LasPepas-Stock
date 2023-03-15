@@ -35,7 +35,7 @@ namespace LasPepas.Aplicacion
             return await _repositorio.GetAll();
         }
 
-        public async Task<T> GetById(string id)
+        public async Task<T> GetById(int id)
         {
             return await _repositorio.GetById(id);
         }

@@ -1,0 +1,15 @@
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\bin\Release\net6.0\LasPepas.Entidades.deps.json
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\bin\Release\net6.0\LasPepas.Entidades.dll
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\bin\Release\net6.0\ref\LasPepas.Entidades.dll
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\bin\Release\net6.0\LasPepas.Entidades.pdb
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\bin\Release\net6.0\LasPepas.Abstracciones.dll
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\bin\Release\net6.0\LasPepas.Abstracciones.pdb
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\obj\Release\net6.0\LasPepas.Entidades.csproj.AssemblyReference.cache
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\obj\Release\net6.0\LasPepas.Entidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\obj\Release\net6.0\LasPepas.Entidades.AssemblyInfoInputs.cache
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\obj\Release\net6.0\LasPepas.Entidades.AssemblyInfo.cs
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\obj\Release\net6.0\LasPepas.Entidades.csproj.CoreCompileInputs.cache
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\obj\Release\net6.0\LasPepas.Entidades.csproj.CopyComplete
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\obj\Release\net6.0\LasPepas.Entidades.dll
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\obj\Release\net6.0\ref\LasPepas.Entidades.dll
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Entidades\obj\Release\net6.0\LasPepas.Entidades.pdb

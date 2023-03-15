@@ -1,0 +1,17 @@
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\bin\Release\net6.0\LasPepas.Servicios.deps.json
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\bin\Release\net6.0\LasPepas.Servicios.dll
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\bin\Release\net6.0\ref\LasPepas.Servicios.dll
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\bin\Release\net6.0\LasPepas.Servicios.pdb
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\bin\Release\net6.0\LasPepas.Abstracciones.dll
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\bin\Release\net6.0\LasPepas.Entidades.dll
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\bin\Release\net6.0\LasPepas.Abstracciones.pdb
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\bin\Release\net6.0\LasPepas.Entidades.pdb
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\obj\Release\net6.0\LasPepas.Servicios.csproj.AssemblyReference.cache
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\obj\Release\net6.0\LasPepas.Servicios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\obj\Release\net6.0\LasPepas.Servicios.AssemblyInfoInputs.cache
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\obj\Release\net6.0\LasPepas.Servicios.AssemblyInfo.cs
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\obj\Release\net6.0\LasPepas.Servicios.csproj.CoreCompileInputs.cache
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\obj\Release\net6.0\LasPepas.Servicios.csproj.CopyComplete
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\obj\Release\net6.0\LasPepas.Servicios.dll
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\obj\Release\net6.0\ref\LasPepas.Servicios.dll
+C:\Users\maty_\source\repos\LasPepas\LasPepas.Servicios\obj\Release\net6.0\LasPepas.Servicios.pdb
